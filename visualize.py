@@ -1,15 +1,3 @@
-事故説明
-The ntu.edu.tw website experienced a data breach. Over 4 thousand email addresses were exposed, together with credential data. Leaked records include password. The validity of the data exposed couldn’t be verified. Yet we’re still informing you about a potential data breach – but keep in mind there’s a chance of it being a false positive.
-事故日期
--
-已洩露的賬戶數量
-4,085
-已洩露的數據
-密碼
-電子郵件
-提供支持：
-安全警告：本網站已發生外洩事件或成為數據洩露的一部分。
-
 import matplotlib.pyplot as plt
 import networkx as nx
 
