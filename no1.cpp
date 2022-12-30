@@ -42,13 +42,6 @@ int main(int argc, char const *argv[])
     	index++;
     }
 
-    for(int i=0; i<10; i++){
-    	for(int j=0; j<15; j++){
-    		printf("%lf ", A[i][j]);
-    	}
-    	printf("\n");
-    }
-
     for(int i=1; i<=n; i++){
     	for(auto it=inEdge[i].begin(); it!=inEdge[i].end(); ++it){
     		int count = 0;
@@ -138,6 +131,13 @@ int main(int argc, char const *argv[])
     if(index != m+3*n){
     	printf("index = %d\n", index);
     	exit(1);
+    }
+
+    for(int i=0; i<10; i++){
+    	for(int j=0; j<15; j++){
+    		printf("%lf ", A[i][j]);
+    	}
+    	printf("\n");
     }
 
     pair<double, vector<double>> res;
