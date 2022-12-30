@@ -17,9 +17,9 @@ typedef struct triple{
 	double weight;
 }Triple;
 
-deque<Mypair> outEdge[81];
-deque<Mypair> inEdge[81];
-deque<Triple> order;
+std::deque<Mypair> outEdge[81];
+std::deque<Mypair> inEdge[81];
+std::deque<Triple> order;
 
 int main(int argc, char const *argv[])
 {
