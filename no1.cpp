@@ -5,8 +5,6 @@
 #include <utility>
 #include <cstdlib>
 
-std::ios_base::sync_with_stdio(false);
-std::cin.tie(nullptr);
 
 typedef struct mypair{
 	int vertex;
@@ -122,7 +120,7 @@ int main(int argc, char const *argv[])
     	printf("-1");
     }
     else{
-    	cout << res.first;
+    	std::cout << res.first;
     }
 
 	return 0;
