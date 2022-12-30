@@ -46,7 +46,7 @@ int main(int argc, char const *argv[])
     	for(auto it=inEdge[i].begin(); it!=inEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).from == (*it) && (*that).to == i){
+    			if((*that).first == (*it) && (*that).second == i){
     				A[index][count] = 1;
     			}
     			count++;
@@ -56,7 +56,7 @@ int main(int argc, char const *argv[])
     	for(auto it=outEdge[i].begin(); it!=outEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).from == i && (*that).to == (*it)){
+    			if((*that).first == i && (*that).second == (*it)){
     				A[index][count] = -1;
     			}
     			count++;
@@ -77,7 +77,7 @@ int main(int argc, char const *argv[])
     	for(auto it=outEdge[i].begin(); it!=outEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).from == i && (*that).to == (*it)){
+    			if((*that).first == i && (*that).second == (*it)){
     				A[index][count] = 1;
     			}
     			count++;
