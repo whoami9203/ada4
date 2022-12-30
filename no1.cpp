@@ -133,7 +133,7 @@ int main(int argc, char const *argv[])
     	exit(1);
     }
 
-    for(int i=0; i<10; i++){
+    for(int i=0; i<25; i++){
     	for(int j=0; j<15; j++){
     		printf("%lf ", A[i][j]);
     	}
