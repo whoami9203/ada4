@@ -140,11 +140,12 @@ int main(int argc, char const *argv[])
     }
     res = ypglpk::mixed_integer_linear_programming(A, b, c, vartype);
 
+    cout << "\033[1;36m" << "MILP: max=" << res.first;
     if(res.first == -ypglpk::INF){
-    	printf("-1");
+    	printf("-1\n");
     }
     else{
-    	cout << res.first;
+    	printf("done\n");
     }
 
 	return 0;
