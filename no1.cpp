@@ -41,7 +41,7 @@ int main(int argc, char const *argv[])
     	b[index] = 9999;
     	index++;
 
-    	printf("from %d to %d\n", (*it).first+m-1, (*it).second+m-1);
+    	printf("%2lf %2lf\n", A[index-1][(*it).first + m -1], A[index-1][(*it).second + m - 1]);
     }
 
     for(int i=1; i<=n; i++){
@@ -133,13 +133,6 @@ int main(int argc, char const *argv[])
     if(index != m+3*n){
     	printf("index = %d\n", index);
     	exit(1);
-    }
-
-    for(int i=0; i<15; i++){
-    	for(int j=0; j<25; j++){
-    		printf("%0lf ", A[i][j]);
-    	}
-    	printf("\n");
     }
 
     pair<double, vector<double>> res;
