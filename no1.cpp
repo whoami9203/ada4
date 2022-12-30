@@ -135,7 +135,7 @@ int main(int argc, char const *argv[])
 
     for(int i=0; i<15; i++){
     	for(int j=0; j<25; j++){
-    		printf("%lf ", A[i][j]);
+    		printf("%0lf ", A[i][j]);
     	}
     	printf("\n");
     }
