@@ -123,7 +123,7 @@ int main(int argc, char const *argv[])
     	index++;
     }
 
-    for(int i=0; i<m; i++){
+    for(int i=0; i<m+n; i++){
     	c[i] = weight[i];
     }
     
