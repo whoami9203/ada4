@@ -1,4 +1,4 @@
-#include <glpk.h>
+#include "ypglpk.hpp"
 #include <iostream>
 #include <vector>
 #include <deque>
