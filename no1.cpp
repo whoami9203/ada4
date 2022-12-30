@@ -74,6 +74,37 @@ int main(int argc, char const *argv[])
     }
 
     for(int i=1; i<=n; i++){
+    	for(auto it=inEdge[i].begin(); it!=inEdge[i].end(); ++it){
+    		int count = 0;
+    		for(auto that=order.begin(); that!=order.end(); ++that){
+    			if((*that).first == (*it) && (*that).second == i){
+    				A[index][count] = -1;
+    			}
+    			count++;
+    		}
+    	}
+
+    	for(auto it=outEdge[i].begin(); it!=outEdge[i].end(); ++it){
+    		int count = 0;
+    		for(auto that=order.begin(); that!=order.end(); ++that){
+    			if((*that).first == i && (*that).second == (*it)){
+    				A[index][count] = 1;
+    			}
+    			count++;
+    		}
+    	}
+
+    	if(i == 1)
+    		b[index] = 1;
+    	else if(i == n)
+    		b[index] = -1;
+    	else
+    		b[index] = 0;
+
+    	index++;
+    }
+
+    for(int i=1; i<=n; i++){
     	for(auto it=outEdge[i].begin(); it!=outEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
@@ -97,7 +128,7 @@ int main(int argc, char const *argv[])
     }
     
 
-    if(index != m+3*n){
+    if(index != 3*n){
     	printf("index = %d\n", index);
     	exit(1);
     }
@@ -118,3 +149,15 @@ int main(int argc, char const *argv[])
 
 	return 0;
 }
+
+5 10
+1 3 906394
+3 2 548103
+2 5 745834
+1 2 1
+3 1 0
+1 4 0
+3 1 1
+1 5 1
+2 1 1
+3 2 1
