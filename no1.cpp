@@ -149,7 +149,7 @@ int main(int argc, char const *argv[])
 
 	return 0;
 }
-
+/*
 5 10
 1 3 906394
 3 2 548103
@@ -161,3 +161,4 @@ int main(int argc, char const *argv[])
 1 5 1
 2 1 1
 3 2 1
+*/
