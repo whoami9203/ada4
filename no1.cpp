@@ -6,19 +6,10 @@
 #include <cstdlib>
 using namespace std;
 
-typedef struct mypair{
-	int vertex;
-	double weight;
-}Mypair;
+typedef pair<int, int> Mypair;	//from, to
 
-typedef struct triple{
-	int from;
-	int to;
-	double weight;
-}Triple;
-
-deque<Mypair> outEdge[81];
-deque<Mypair> inEdge[81];
+deque<int> outEdge[81];
+deque<int> inEdge[81];
 deque<Mypair> order;
 double weight[91];
 
@@ -32,8 +23,8 @@ int main(int argc, char const *argv[])
 
 	for(int i=0; i<m; i++){
 		scanf("%d%d%lf", &u, &v, &w);
-		outEdge[u].push_back({v, w});
-		inEdge[v].push_back({u, w});
+		outEdge[u].push_back(v);
+		inEdge[v].push_back(u);
 		order.push_back({u, v});
 		weight[i] = w;
 	}
@@ -45,8 +36,8 @@ int main(int argc, char const *argv[])
     int index = 0;
     for(auto it:order.begin(); it!=order.end(); ++it){
     	A[index][index] = 10000;
-    	A[index][(*it).from + m - 1] = 1;
-    	A[index][(*it).to + m - 1] = -1;
+    	A[index][(*it).first + m - 1] = 1;
+    	A[index][(*it).second + m - 1] = -1;
     	b[index] = 9999;
     	index++;
     }
@@ -55,7 +46,7 @@ int main(int argc, char const *argv[])
     	for(auto it=inEdge[i].begin(); it!=inEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).from == (*it).vertex && (*that).to == i){
+    			if((*that).from == (*it) && (*that).to == i){
     				A[index][count] = 1;
     			}
     			count++;
@@ -65,7 +56,7 @@ int main(int argc, char const *argv[])
     	for(auto it=outEdge[i].begin(); it!=outEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).from == (*it).vertex && (*that).to == i){
+    			if((*that).from == i && (*that).to == (*it)){
     				A[index][count] = -1;
     			}
     			count++;
@@ -86,7 +77,7 @@ int main(int argc, char const *argv[])
     	for(auto it=outEdge[i].begin(); it!=outEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).from == (*it).vertex && (*that).to == i){
+    			if((*that).from == i && (*that).to == (*it)){
     				A[index][count] = 1;
     			}
     			count++;
