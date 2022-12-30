@@ -23,8 +23,8 @@ int main(int argc, char const *argv[])
 
 	for(int i=0; i<m; i++){
 		scanf("%d%d%lf", &u, &v, &w);
-		outEdge[u].push_back(v, w);
-		inEdge[v].push_back(u, w);
+		outEdge[u].push_back({v, w});
+		inEdge[v].push_back({u, w});
 		order.push_back({u, v});
 		weight[i] = w;
 	}
