@@ -19,7 +19,8 @@ typedef struct triple{
 
 deque<Mypair> outEdge[81];
 deque<Mypair> inEdge[81];
-deque<Triple> order;
+deque<Mypair> order;
+double weight[91];
 
 int main(int argc, char const *argv[])
 {
@@ -33,7 +34,8 @@ int main(int argc, char const *argv[])
 		scanf("%d%d%lf", &u, &v, &w);
 		outEdge[u].push_back({v, w});
 		inEdge[v].push_back({u, w});
-		order.push_back({u, v, w});
+		order.push_back({u, v});
+		weight[i] = w;
 	}
 
 	ypglpk::set_output(true);
@@ -99,10 +101,10 @@ int main(int argc, char const *argv[])
     	index++;
     }
 
-    int count = 0;
-    for(auto it=order.begin(); it!=order.end(); ++it){
-    	c[count++] = (*it).weight;
+    for(int i=0; i<m; i++){
+    	c[i] = weight[i];
     }
+    
 
     if(index != m+3*n){
     	printf("index = %d\n", index);
