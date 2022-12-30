@@ -137,7 +137,7 @@ int main(int argc, char const *argv[])
     	for(int j=0; j<15; j++){
     		printf("%lf ", A[i][j]);
     	}
-    	printf("\n");
+    	printf("%lf\n", b[i]);
     }
 
     pair<double, vector<double>> res;
