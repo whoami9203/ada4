@@ -134,10 +134,10 @@ int main(int argc, char const *argv[])
     }
 
     pair<double, std::vector<double>> res;
-    vector<int> vartype(n);
-    vartype[0] = GLP_CV;
-    vartype[1] = GLP_IV;
-    vartype[2] = GLP_IV; // y,z should be integers
+    vector<int> vartype(m+n);
+    for(int i=0; i<m+n; i++){
+    	vartype[i] = GLP_IV;
+    }
     res = ypglpk::mixed_integer_linear_programming(A, b, c, vartype);
 
     if(res.first == -ypglpk::INF){
