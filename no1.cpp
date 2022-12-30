@@ -34,7 +34,7 @@ int main(int argc, char const *argv[])
     vector<double> b(m + 3*n), c(m+n);
 
     int index = 0;
-    for(auto it:order.begin(); it!=order.end(); ++it){
+    for(auto it=order.begin(); it!=order.end(); ++it){
     	A[index][index] = 10000;
     	A[index][(*it).first + m - 1] = 1;
     	A[index][(*it).second + m - 1] = -1;
