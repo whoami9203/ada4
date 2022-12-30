@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	int u, v;
 	double w;
 
-	scanf("%d", &n);
+	scanf("%d%d", &n, &m);
 
 	for(int i=0; i<m; i++){
 		scanf("%d%d%lf", &u, &v, &w);
