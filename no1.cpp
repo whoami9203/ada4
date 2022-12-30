@@ -128,7 +128,7 @@ int main(int argc, char const *argv[])
     }
     
 
-    if(index != 3*n){
+    if(index != m+3*n){
     	printf("index = %d\n", index);
     	exit(1);
     }
