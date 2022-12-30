@@ -123,7 +123,7 @@ int main(int argc, char const *argv[])
     	index++;
     }
 
-    for(int i=0; i<m+n; i++){
+    for(int i=0; i<m; i++){
     	c[i] = weight[i];
     }
     
@@ -139,6 +139,9 @@ int main(int argc, char const *argv[])
     	}
     	printf("%lf\n", b[i]);
     }
+   	for(int i=0; i<25; i++){
+   		printf("%lf\n", c[i]);
+   	}
 
     pair<double, vector<double>> res;
     vector<int> vartype(m+n);
