@@ -40,6 +40,8 @@ int main(int argc, char const *argv[])
     	A[index][(*it).second + m - 1] = -1;
     	b[index] = 9999;
     	index++;
+
+    	printf("from %d to %d\n", (*it).first, (*it).second);
     }
 
     for(int i=1; i<=n; i++){
