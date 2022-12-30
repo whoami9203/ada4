@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
 	}
 
 	ypglpk::set_output(true);
-	vector<std::vector<double>> A(m + 3*n, std::vector<double>(m+n));
+	vector<vector<double>> A(m + 3*n, vector<double>(m+n));
     vector<double> b(m + 3*n), c(m+n);
 
     int index = 0;
@@ -133,14 +133,21 @@ int main(int argc, char const *argv[])
     	exit(1);
     }
 
-    pair<double, std::vector<double>> res;
+    for(int i=0; i<15; i++){
+    	for(int j=0; j<25; j++){
+    		printf("%lf ", A[i][j]);
+    	}
+    	printf("\n");
+    }
+
+    pair<double, vector<double>> res;
     vector<int> vartype(m+n);
     for(int i=0; i<m+n; i++){
     	vartype[i] = GLP_IV;
     }
     res = ypglpk::mixed_integer_linear_programming(A, b, c, vartype);
 
-    cout << "\033[1;36m" << "MILP: max=" << res.first;
+    cout << "\033[1;36m" << "MILP: max=" << res.first << endl;
     if(res.first == -ypglpk::INF){
     	printf("-1\n");
     }
