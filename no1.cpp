@@ -8,8 +8,8 @@ using namespace std;
 
 typedef pair<int, int> Mypair;	//from, to
 
-deque<int> outEdge[81];
-deque<int> inEdge[81];
+deque<Mypair> outEdge[81];		//vertex, weight
+deque<Mypair> inEdge[81];
 deque<Mypair> order;
 double weight[91];
 
@@ -23,8 +23,8 @@ int main(int argc, char const *argv[])
 
 	for(int i=0; i<m; i++){
 		scanf("%d%d%lf", &u, &v, &w);
-		outEdge[u].push_back(v);
-		inEdge[v].push_back(u);
+		outEdge[u].push_back(v, w);
+		inEdge[v].push_back(u, w);
 		order.push_back({u, v});
 		weight[i] = w;
 	}
@@ -46,8 +46,9 @@ int main(int argc, char const *argv[])
     	for(auto it=inEdge[i].begin(); it!=inEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).first == (*it) && (*that).second == i){
+    			if((*that).first == (*it).first && (*that).second == i && weight[count] == (*it).second){
     				A[index][count] = 1;
+    				break;
     			}
     			count++;
     		}
@@ -56,8 +57,9 @@ int main(int argc, char const *argv[])
     	for(auto it=outEdge[i].begin(); it!=outEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).first == i && (*that).second == (*it)){
+    			if((*that).first == i && (*that).second == (*it).first && weight[count] == (*it).second){
     				A[index][count] = -1;
+    				break;
     			}
     			count++;
     		}
@@ -77,8 +79,9 @@ int main(int argc, char const *argv[])
     	for(auto it=inEdge[i].begin(); it!=inEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).first == (*it) && (*that).second == i){
+    			if((*that).first == (*it).first && (*that).second == i && weight[count] == (*it).second){
     				A[index][count] = -1;
+    				break;
     			}
     			count++;
     		}
@@ -87,8 +90,9 @@ int main(int argc, char const *argv[])
     	for(auto it=outEdge[i].begin(); it!=outEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).first == i && (*that).second == (*it)){
+    			if((*that).first == i && (*that).second == (*it).first && weight[count] == (*it).second){
     				A[index][count] = 1;
+    				break;
     			}
     			count++;
     		}
@@ -108,7 +112,7 @@ int main(int argc, char const *argv[])
     	for(auto it=outEdge[i].begin(); it!=outEdge[i].end(); ++it){
     		int count = 0;
     		for(auto that=order.begin(); that!=order.end(); ++that){
-    			if((*that).first == i && (*that).second == (*it)){
+    			if((*that).first == i && (*that).second == (*it).first && weight[count] == (*it).second){
     				A[index][count] = 1;
     			}
     			count++;
