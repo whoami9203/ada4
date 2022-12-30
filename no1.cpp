@@ -142,8 +142,11 @@ int main(int argc, char const *argv[])
 
     pair<double, vector<double>> res;
     vector<int> vartype(m+n);
-    for(int i=0; i<m+n; i++){
+    for(int i=0; i<m; i++){
     	vartype[i] = GLP_IV;
+    }
+    for(int i=m; i<n+m; i++){
+    	vartype[i] = GLP_CV;
     }
     res = ypglpk::mixed_integer_linear_programming(A, b, c, vartype);
 
