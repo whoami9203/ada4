@@ -4,7 +4,7 @@
 #include <deque>
 #include <utility>
 #include <cstdlib>
-
+using namespace std;
 
 typedef struct mypair{
 	int vertex;
@@ -17,9 +17,9 @@ typedef struct triple{
 	double weight;
 }Triple;
 
-std::deque<Mypair> outEdge[81];
-std::deque<Mypair> inEdge[81];
-std::deque<Triple> order;
+deque<Mypair> outEdge[81];
+deque<Mypair> inEdge[81];
+deque<Triple> order;
 
 int main(int argc, char const *argv[])
 {
@@ -37,8 +37,8 @@ int main(int argc, char const *argv[])
 	}
 
 	ypglpk::set_output(true);
-	std::vector<std::vector<double>> A(m + 3*n, std::vector<double>(m+n));
-    std::vector<double> b(m + 3*n), c(m+n);
+	vector<std::vector<double>> A(m + 3*n, std::vector<double>(m+n));
+    vector<double> b(m + 3*n), c(m+n);
 
     int index = 0;
     for(auto it:order.begin(); it!=order.end(); ++it){
@@ -109,8 +109,8 @@ int main(int argc, char const *argv[])
     	exit(1);
     }
 
-    std::pair<double, std::vector<double>> res;
-    std::vector<int> vartype(n);
+    pair<double, std::vector<double>> res;
+    vector<int> vartype(n);
     vartype[0] = GLP_CV;
     vartype[1] = GLP_IV;
     vartype[2] = GLP_IV; // y,z should be integers
@@ -120,7 +120,7 @@ int main(int argc, char const *argv[])
     	printf("-1");
     }
     else{
-    	std::cout << res.first;
+    	cout << res.first;
     }
 
 	return 0;
